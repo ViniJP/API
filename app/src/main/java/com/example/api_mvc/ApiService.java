@@ -43,5 +43,4 @@ public interface ApiService {
     // Deleta o objeto por completo e não tem retorno
     @DELETE("posts/{id}")
     Call<Void> deletePostagem(@Path("id") int id);
-
 }
