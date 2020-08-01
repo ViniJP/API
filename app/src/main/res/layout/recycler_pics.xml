@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".View.GetFragment">
+
+    <ImageView
+        android:id="@+id/image_pic_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:srcCompat="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/titulo_pic_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Texto titulo"
+        android:textSize="24sp"
+        tools:text="Texto titulo" />
+
+</LinearLayout>
