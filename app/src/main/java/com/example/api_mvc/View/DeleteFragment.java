@@ -2,6 +2,7 @@ package com.example.api_mvc.View;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,29 +13,26 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.api_mvc.ApiService;
+import com.example.api_mvc.Api.ApiService;
 import com.example.api_mvc.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DeleteFragment extends Fragment {
 
     private TextView resposta;
-    private Retrofit retrofit;
+    private ApiService apiService;
+    private EditText id;
 
-    public DeleteFragment() {
-        // Required empty public constructor
+    public DeleteFragment(ApiService apiService) {
+        this.apiService = apiService;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setaRetrofit();
 
     }
 
@@ -45,6 +43,7 @@ public class DeleteFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_delete, container, false);
 
         resposta = view.findViewById(R.id.txt_resposta_delete);
+        id = view.findViewById(R.id.editext_id_fragment_delete);
         setarBotao(view);
 
         return view;
@@ -52,8 +51,6 @@ public class DeleteFragment extends Fragment {
 
     private void setarBotao(View view){
         Button button = view.findViewById(R.id.bt_delete_fragment);
-        EditText id = view.findViewById(R.id.editext_id_fragment_delete);
-
 
         button.setOnClickListener(view1 -> {
             String txt_id = id.getText().toString();
@@ -66,31 +63,27 @@ public class DeleteFragment extends Fragment {
     }
 
     private void deletarPostagem(String id){
-        ApiService apiService = retrofit.create(ApiService.class);
         Call<Void> call = apiService.deletePostagem(Integer.parseInt(id));
         call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.isSuccessful()){
-                    String s = "Código: " + response.code() + " " + response.message();
+                    String s = "Código: " + (response.code() == 200 ? "200. Deletado com sucesso." : response.code());
                     resposta.setText(s);
 
                 }else {
-
+                    setaErro();
                 }
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                setaErro();
             }
         });
     }
 
-    private void setaRetrofit() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    private void setaErro() {
+        resposta.setText(R.string.houve_erro);
     }
 }

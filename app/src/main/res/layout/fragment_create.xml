@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:gravity="center|center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:text="Create Fragment"
+        android:text="@string/create_fragment"
         android:textSize="30sp" />
 
 
@@ -22,8 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Insira o Id"
-        android:inputType="number" />
+        android:hint="@string/insira_o_id"
+        android:inputType="number"
+        android:autofillHints="@string/insira_o_id" />
 
     <EditText
         android:id="@+id/editext_user_id"
@@ -31,23 +32,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:inputType="number"
-        android:hint="Insira o UserId" />
+        android:hint="@string/insira_o_userid"
+        android:autofillHints="@string/insira_o_userid" />
 
     <EditText
         android:id="@+id/editext_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Insira o titulo"
-        android:inputType="textCapSentences" />
+        android:hint="@string/insira_o_titulo"
+        android:inputType="textCapSentences"
+        android:autofillHints="@string/insira_o_titulo" />
 
     <EditText
         android:id="@+id/editext_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Insira o texto"
-        android:inputType="textCapSentences" />
+        android:hint="@string/insira_o_texto"
+        android:inputType="textCapSentences"
+        android:autofillHints="@string/insira_o_texto" />
 
     <Button
         android:id="@+id/button_post"
@@ -55,12 +59,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#2196F3"
-        android:text="Postar"
+        android:text="@string/postar"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/resultado_post"
+        android:text="@string/resposta"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -2,6 +2,7 @@ package com.example.api_mvc.View;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,8 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.api_mvc.ApiService;
+import com.example.api_mvc.Api.ApiService;
 import com.example.api_mvc.Classe.Pics;
 import com.example.api_mvc.R;
 
@@ -21,16 +23,14 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GetFragment extends Fragment {
 
-    private Retrofit retrofit;
     private PicAdapter picAdapter;
-    private ArrayList<Pics> listPics;
+    private ApiService apiService;
 
-    public GetFragment() {
+    public GetFragment(ApiService apiService ){
+        this.apiService = apiService;
         // Required empty public constructor
     }
 
@@ -38,10 +38,7 @@ public class GetFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setaRetrofit();
-
         recuperarInfo();
-
     }
 
     @Override
@@ -66,35 +63,33 @@ public class GetFragment extends Fragment {
 
     }
 
-
-
-    private void setaRetrofit() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
-
     private void recuperarInfo() {
-        ApiService apiService = retrofit.create(ApiService.class);
+        // Inicia a chamada para reciperar info, o metodo recuperarInfo foi criado na classe ApiService
         Call<List<Pics>> call = apiService.recuperarInfo();
+        // call.enqueue() inicia uma chamada assincrona, call.execute() inicia uma chamada sincrona
         call.enqueue(new Callback<List<Pics>>() {
             @Override
-            public void onResponse(Call<List<Pics>> call, Response<List<Pics>> response) {
+            public void onResponse(@NonNull Call<List<Pics>> call, @NonNull Response<List<Pics>> response) {
                 if (response.isSuccessful()){
                     ArrayList<Pics> list = (ArrayList<Pics>) response.body();
                     picAdapter.setPics(list);
                     Log.i("Pics", "onResponse: ok");
                 } else {
+                    setaErro();
                     Log.i("Pics", "not Successfull" + response.message());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Pics>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Pics>> call, @NonNull Throwable t) {
+                setaErro();
                 Log.i("Pics", "onFailure" + t.getMessage());
             }
         });
+    }
+
+    private void setaErro() {
+        Toast.makeText(getContext(), "Houve um erro!", Toast.LENGTH_SHORT).show();
     }
 
 

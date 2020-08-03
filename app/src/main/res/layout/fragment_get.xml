@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:gravity="center_horizontal|top"
         android:layout_marginTop="20dp"
-        android:text="Get Fragment"
+        android:text="@string/get_fragment"
         android:textSize="30sp" />
 
     <androidx.recyclerview.widget.RecyclerView

@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".View.GetFragment">
+    tools:context=".View.GetFragment"
+    tools:ignore="UseCompoundDrawables">
 
     <ImageView
         android:id="@+id/image_pic_recycler"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:srcCompat="@color/colorAccent" />
+        app:srcCompat="@color/colorAccent"
+        android:contentDescription="@string/imagem" />
 
     <TextView
         android:id="@+id/titulo_pic_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Texto titulo"
+        android:text="@string/texto_titulo"
         android:textSize="24sp"
         tools:text="Texto titulo" />
 

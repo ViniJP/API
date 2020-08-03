@@ -66,7 +66,6 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.MyViewholder> {
     public void setPics(ArrayList<Pics> pics){
         this.pics = pics;
         notifyDataSetChanged();
-
     }
 
 }

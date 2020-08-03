@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">API_mvc</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="houve_erro">Houve um erro</string>
+    <string name="create_fragment">Create Fragment</string>
+    <string name="insira_o_id">Insira o Id</string>
+    <string name="insira_o_userid">Insira o UserId</string>
+    <string name="insira_o_titulo">Insira o titulo</string>
+    <string name="insira_o_texto">Insira o texto</string>
+    <string name="postar">Postar</string>
+    <string name="resposta">Resposta</string>
+    <string name="get">Get</string>
+    <string name="create">Create</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="delete_fragment">Delete Fragment</string>
+    <string name="get_fragment">Get Fragment</string>
+    <string name="update_fragment">Update Fragment</string>
+    <string name="texto_titulo">Texto titulo</string>
+    <string name="imagem">imagem</string>
 </resources>

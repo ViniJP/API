@@ -21,32 +21,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            style="?android:borderlessButtonStyle"
             android:background="@android:color/background_light"
-            android:text="Get" />
+            android:text="@string/get" />
 
         <Button
             android:id="@+id/bt_create"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            style="?android:borderlessButtonStyle"
             android:background="@android:color/background_light"
-            android:text="Create" />
+            android:text="@string/create" />
 
         <Button
             android:id="@+id/bt_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            style="?android:borderlessButtonStyle"
             android:background="@android:color/background_light"
-            android:text="Update" />
+            android:text="@string/update" />
 
         <Button
             android:id="@+id/bt_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            style="?android:borderlessButtonStyle"
             android:background="@android:color/background_light"
-            android:text="Delete" />
+            android:text="@string/delete" />
 
 
     </LinearLayout>
