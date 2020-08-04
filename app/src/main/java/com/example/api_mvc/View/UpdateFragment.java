@@ -27,7 +27,6 @@ public class UpdateFragment extends Fragment {
     private TextView resultado;
 
     public UpdateFragment(ApiService apiService) {
-        // Required empty public constructor
         this.apiService = apiService;
     }
 
@@ -35,7 +34,6 @@ public class UpdateFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setaRetrofit();
     }
 
     @Override
@@ -47,8 +45,6 @@ public class UpdateFragment extends Fragment {
         setarBotao(view);
 
         resultado = view.findViewById(R.id.txt_resposta_update);
-
-
 
         return view;
     }
@@ -67,7 +63,7 @@ public class UpdateFragment extends Fragment {
             String txt_title = text_title.getText().toString();
             String txt_body = text_body.getText().toString();
             if (txt_id.isEmpty()){
-                Toast.makeText(getContext(), "Preencha o Id", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.preencha_id, Toast.LENGTH_SHORT).show();
                 return;
             }
             atualizarPostagem(txt_text_id, txt_title, txt_body, txt_id);
@@ -87,8 +83,11 @@ public class UpdateFragment extends Fragment {
                 if (response.isSuccessful()){
                     Postagem resposta = response.body();
                     assert resposta != null;
-                    String txt_resposta = "Código: "+ response.code() +" \nUserId: " + resposta.getUserId() + " \nId: " + resposta.getId()
-                            + " \nTitle: " + resposta.getTitle() + " \nBody: " + resposta.getBody();
+                    String txt_resposta = getString(R.string.codigo) + " " + response.code() +
+                            " \n"+ getString(R.string.userId) + " " + resposta.getUserId() +
+                            " \n" + getString(R.string.id) + " " + resposta.getId()
+                            + " \n" + getString(R.string.title) + " " + resposta.getTitle() +
+                            " \n" + getString(R.string.body) + " " + resposta.getBody();
                     resultado.setText(txt_resposta);
                 }else {
                     setaErro();

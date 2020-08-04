@@ -19,4 +19,13 @@
     <string name="update_fragment">Update Fragment</string>
     <string name="texto_titulo">Texto titulo</string>
     <string name="imagem">imagem</string>
+    <string name="endereco_api">https://jsonplaceholder.typicode.com/</string>
+    <string name="codigo">Código:</string>
+    <string name="userId">UserId:</string>
+    <string name="id">Id:</string>
+    <string name="body">Body:</string>
+    <string name="title">Title:</string>
+    <string name="preencha_campos">Preencha os campos</string>
+    <string name="preencha_id">Preencha o Id</string>
+    <string name="deletado_sucesso">200. Deletado com sucesso.</string>
 </resources>

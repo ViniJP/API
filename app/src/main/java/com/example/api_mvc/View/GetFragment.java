@@ -31,7 +31,6 @@ public class GetFragment extends Fragment {
 
     public GetFragment(ApiService apiService ){
         this.apiService = apiService;
-        // Required empty public constructor
     }
 
     @Override
@@ -89,7 +88,7 @@ public class GetFragment extends Fragment {
     }
 
     private void setaErro() {
-        Toast.makeText(getContext(), "Houve um erro!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), R.string.houve_erro, Toast.LENGTH_SHORT).show();
     }
 
 

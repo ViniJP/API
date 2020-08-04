@@ -41,7 +41,6 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.MyViewholder> {
                 .resize(200, 200)
                 .centerCrop()
                 .into(holder.imagem);
-
     }
 
     @Override

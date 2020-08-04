@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     private void setaRetrofit() {
         // Retrofit é setado com a url
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .baseUrl(getString(R.string.endereco_api))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         //Classe ApiService é criada atraves do retrofit

@@ -33,7 +33,6 @@ public class DeleteFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -55,7 +54,7 @@ public class DeleteFragment extends Fragment {
         button.setOnClickListener(view1 -> {
             String txt_id = id.getText().toString();
             if (txt_id.isEmpty()){
-                Toast.makeText(getContext(), "Preencha o Id", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.preencha_id, Toast.LENGTH_SHORT).show();
                 return;
             }
             deletarPostagem(txt_id);
@@ -68,7 +67,8 @@ public class DeleteFragment extends Fragment {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.isSuccessful()){
-                    String s = "Código: " + (response.code() == 200 ? "200. Deletado com sucesso." : response.code());
+                    String s = getString(R.string.codigo) + " " +
+                            (response.code() == 200 ? getString(R.string.deletado_sucesso) : response.code());
                     resposta.setText(s);
 
                 }else {

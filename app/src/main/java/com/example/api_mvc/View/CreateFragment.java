@@ -69,7 +69,7 @@ public class CreateFragment extends Fragment {
             String body = text_body.getText().toString();
 
             if (id.isEmpty() || userid.isEmpty() || title.isEmpty() || body.isEmpty()){
-                Toast.makeText(getContext(), "Preencha os campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.preencha_campos, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -88,9 +88,11 @@ public class CreateFragment extends Fragment {
                 if (response.isSuccessful()){
                     Postagem resposta = response.body();
                     assert resposta != null;
-                    String txt_resposta = "Código: "+ response.code() +" \nUserId: " +
-                            resposta.getUserId() + " \nId: " + resposta.getId()
-                            + " \nTitle: " + resposta.getTitle() + " \nBody: " + resposta.getBody();
+                    String txt_resposta = getString(R.string.codigo) + " " + response.code() +
+                            "\n" + getString(R.string.userId) + " " + resposta.getUserId() +
+                            "\n" +getString(R.string.id) + " " + resposta.getId()
+                            + "\n" + getString(R.string.title) + " " + resposta.getTitle() +
+                            "\n" + getString(R.string.body) + " " + resposta.getBody();
                     resultado.setText(txt_resposta);
                 }else {
                     setaErro();
